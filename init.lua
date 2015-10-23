@@ -104,9 +104,9 @@ FORMALDARKNESS = {
 register_clay_block = function(name,formalname)
 	minetest.register_node("unifiedbricks:" .. TYPES[1] .. name, {
 		description = formalname .. FORMALTYPES[1],
-		tile_images = {"unifiedbricks_" .. TYPES[1] .. name .. ".png"},
+		tiles = {"unifiedbricks_" .. TYPES[1] .. name .. ".png"},
 		is_ground_content = true,
-		groups = {crumbly=3},
+		groups = {crumbly=3, not_in_creative_inventory=1},
 		drop = "unifiedbricks:" .. TYPES[2] .. name .. " 4",
 		sounds = default.node_sound_dirt_defaults({
 			footstep = "",
@@ -117,30 +117,32 @@ register_clay_lump = function(name,formalname)
 	minetest.register_craftitem("unifiedbricks:" .. TYPES[2] .. name, {
 		description = formalname .. FORMALTYPES[2],
 		inventory_image = "unifiedbricks_" .. TYPES[2] .. name .. ".png",
+		groups = {not_in_creative_inventory=1}
 	})
 end
 register_brick = function(name,formalname)
 	minetest.register_craftitem("unifiedbricks:" .. TYPES[3] .. name, {
 		description = formalname .. FORMALTYPES[3],
 		inventory_image = "unifiedbricks_" .. TYPES[3] .. name .. ".png",
+		groups = {not_in_creative_inventory=1}
 	})
 end
 register_brick_block = function(name,formalname)
 	minetest.register_node("unifiedbricks:" .. TYPES[4] .. name, {
 		description = formalname .. FORMALTYPES[4],
-		tile_images = {"unifiedbricks_" .. TYPES[4] .. name .. ".png"},
+		tiles = {"unifiedbricks_" .. TYPES[4] .. name .. ".png"},
 		is_ground_content = true,
-		groups = {cracky=3},
-		drop = "unifiedbricks_" .. TYPES[3] .. name .." 4",
+		groups = {cracky=3, not_in_creative_inventory=1},
+		drop = "unifiedbricks:" .. TYPES[3] .. name .." 4",
 		sounds = default.node_sound_stone_defaults(),
 	})
 end
 register_multicolor = function(name,formalname,drop_one,drop_two,drop_three)
 	minetest.register_node("unifiedbricks:" .. TYPES[5] .. name, {
 		description = formalname .. FORMALTYPES[5],
-		tile_images = {"unifiedbricks_" .. TYPES[5] .. name .. ".png"},
+		tiles = {"unifiedbricks_" .. TYPES[5] .. name .. ".png"},
 		is_ground_content = true,
-		groups = {cracky=3},
+		groups = {cracky=3, not_in_creative_inventory=1},
 		drop = {max_items = 4,
 			items={
 				{items={"unifiedbricks:" .. TYPES[3] .. drop_one .." 2"}},
